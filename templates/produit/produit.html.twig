@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste de contact {% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    #paku { background-color: rgb(235, 126, 126); border-radius: 50%; }
+
+</style>
+
+<div class="example-wrapper">
+    <h2 class="text-center pt-2">Liste des produits agricoles en vente</h2>
+</div>
+
+
+    <div class="row">
+        {% for produit in lesProduits %} 
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                
+                <div class="card mb-3 container">
+                    <h4 class="card-title text-center">{{produit.nomProduit}}</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> Quantité en stock : {{produit.quantiteStock }} kg</li>
+                        <li class="list-group-item">Prix : {{produit.prix}} euros/kg</li>
+                        <li class="list-group-item">Date de création : {{produit.dateCreation|date('d/m/Y')}}</li>
+                        {# <li class="list-group-item">{{produit.categorie}}</li> #}
+                        <li class="list-group-item">{{produit.descriptionCourte}}</li> 
+                    </ul>
+                    <img style="height: auto; max-width: 200px; display: block;" src="{{produit.image}}" class="avatar mx-auto my-3" alt="image avatar">
+                </div> 
+
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+                    {# <li class="list-group-item">
+                        <a href="{{path('detailCategorie', {'id': produit.categorie.id})}}" class="btn btn-block text-center w-100" style="background-color: rgb(184, 223, 234)">    
+                        {{produit.categorie.libelle}}
+                        </a>
+                    </li>
+
+                    <div class="card-body">
+                        <a href="{{path('ficheContact', {'id': produit.id})}}" class="btn btn-success btn-block text-center w-100">Détails de {{produit.nom}} {{produit.prenom}}</a>
+                    </div>   #}
