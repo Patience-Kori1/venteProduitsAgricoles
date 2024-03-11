@@ -30,7 +30,7 @@ class Produit
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="image",)
      */
     private ?File $imageFile;
 

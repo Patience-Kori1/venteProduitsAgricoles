@@ -38,8 +38,8 @@ class ProduitController extends AbstractController
             $sendDatabase->persist($produit);
             $sendDatabase->flush();
 
-            $this->addFlash('notice', 'Soumission réussie !!'); 
-            return $this->redirectToRoute('accueil'); // Gère la redirection vers la page d'accueil après validation du formulaire
+            $this->addFlash('notice', 'Votre produit a été ajouté !!'); 
+            return $this->redirectToRoute('app_accueil'); // Gère la redirection vers la page d'accueil après validation du formulaire
         }
         return $this->render('produit/formProduit.html.twig', [
             'form' => $form->createView()

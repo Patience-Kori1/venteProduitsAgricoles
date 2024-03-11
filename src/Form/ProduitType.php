@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class ProduitType extends AbstractType
 {
@@ -16,9 +17,7 @@ class ProduitType extends AbstractType
     {
         $builder
             ->add('nomProduit')
-            ->add('image')
             ->add('imageFile', VichImageType::class, [
-                'label' => 'Image du produit',
                 'label' => 'Image du produit',
                 'required' => false,
                 'allow_delete' => true,
@@ -28,7 +27,8 @@ class ProduitType extends AbstractType
             ])            
             ->add('prix')
             ->add('quantiteStock')
-            ->add('dateCreation')
+            ->add('dateCreation' , DateTimeType::class, [
+                'date_label' => 'Starts On'])
             ->add('descriptionCourte')
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
