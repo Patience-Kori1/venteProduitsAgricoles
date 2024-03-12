@@ -62,15 +62,6 @@ class ProduitController extends AbstractController
         $form -> handleRequest($request); 
 
         if ( $form->isSubmitted() && $form->isValid()) {
-
-            // $imageFile = $form['imageFile']->getData();
-    
-            // if ($imageFile instanceof UploadedFile) {
-            //     // Mettre à jour l'image du produit en utilisant la nouvelle valeur de imageFile
-            //     // ...
-            // }
-    
-            // $produit->setImageFile($imageFile);
             $sendDatabase = $this->getDoctrine()
                                  ->getManager();
             $sendDatabase->persist($produit);
