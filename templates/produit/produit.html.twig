@@ -27,11 +27,11 @@
 
                 {# Je fais une condition pour que twig puisse vérifier si l'image est une fixture commençant par une URL 'http' ou 'https', qu'il puisse utiliser la source normal de l'image. Mais s'il n'est vide et qu'il ne commence pas par http et https, il va paramétrer le image_path avec la donction asset() qui va afficher l'image se trouvant dans le repertoire 'images/'#}
 
-                {% set image_path = produit.image %}
-                {% if produit.image is not empty and not (produit.image starts with 'http' or produit.image starts with 'https') %}
+                {% set image_path = produit.imageName %}
+                {% if produit.imageName is not empty and not (produit.imageName starts with 'http' or produit.imageName starts with 'https') %}
 
                 {# Il s'agit d'une image téléchargée via le formulaire #} 
-                {% set image_path = asset('images/' ~ produit.image) %}
+                {% set image_path = asset('images/' ~ produit.imageName) %}
                 {% endif %}
 
                  {# s'il s'agit d'une image ayant un lien http ou https il va utiliser ce mod d'affichage #}

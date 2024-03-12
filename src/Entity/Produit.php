@@ -30,14 +30,14 @@ class Produit
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="image",)
+     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="imageName",)
      */
     private ?File $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    private $imageName;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
@@ -109,14 +109,14 @@ class Produit
         return $this->imageFile;
     }
 
-    public function getImage(): ?string
+    public function getImageName(): ?string
     {
-        return $this->image;
+        return $this->imageName;
     }
 
-    public function setImage(string $image): self
+    public function setImageName(string $imageName): self
     {
-        $this->image = $image;
+        $this->imageName = $imageName;
 
         return $this;
     }
