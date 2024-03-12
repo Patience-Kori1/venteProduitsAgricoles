@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container">
+    <div class="row">
+        <h2 class="mt-4 mb-3 text-center">Formulaire d'ajout d'un produit</h2>
+
+        {# Message flash #}
+        {% for message in app.flashes('notice')%}
+        <div class="alert alert-success">{{message}}</div>
+        {%endfor%}
+
+        {# formulaire #}
+        <div class="col-md-6 offset-md-3">
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.nomProduit) }}
+                {{ form_widget(form.nomProduit, { 'attr': {'class':'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.prix)}}
+                {{ form_widget(form.prix, {'attr': {'class':'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.quantiteStock)}}
+                {{ form_widget(form.quantiteStock, {'attr': {'class':'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateCreation)}}
+                {{ form_widget(form.dateCreation, {'attr': {'class':'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.categorie)}}
+                {{ form_widget(form.categorie, {'attr': {'class':'form-control'} }) }}
+            </div>
+            
+            {% if form.imageFile.vars.value is not null %}
+            {{ form_widget(form.imageFile, { 'attr': {'class':'form-control'} }) }}
+            {% else %}
+            <img src="{{ asset('images/' ~ produit.image) }}" alt="Image du produit">
+            <input type="hidden" name="produit[image]" value="{{ produit.image }}">
+            {% endif %}
+            
+            <div class="form-group">
+                {{ form_label(form.descriptionCourte)}}
+                {{ form_widget(form.descriptionCourte, {'attr': {'class':'form-control'} }) }}
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-info mt-2">
+                Soumettre</button>
+            </div>
+        {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
