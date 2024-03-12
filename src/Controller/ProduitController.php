@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Form\ProduitUpdateType;
+use App\Form\ProduitUpdateType;
 use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,6 +29,9 @@ class ProduitController extends AbstractController
     /**
     * @route("/create" , name="create")
     */
+    /**
+    * @route("/create" , name="create")
+    */
     public function create(Request $request): Response
     {
         $produit = new Produit;
@@ -41,6 +45,7 @@ class ProduitController extends AbstractController
             $sendDatabase->flush();
 
             $this->addFlash('notice', 'Votre produit a été ajouté !!'); 
+            return $this->redirectToRoute('showTable'); // Gère la redirection vers la page d'accueil après validation du formulaire
             return $this->redirectToRoute('showTable'); // Gère la redirection vers la page d'accueil après validation du formulaire
         }
         return $this->render('produit/formProduit.html.twig', [

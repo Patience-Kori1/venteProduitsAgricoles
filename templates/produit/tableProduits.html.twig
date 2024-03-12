@@ -35,12 +35,20 @@
                     <td>{{data.quantiteStock}}</td>
                     <td>{{data.dateCreation|date('d/m/Y')}}</td>
                     <td>{{data.categorie.nomCategorie}}</td>
+<<<<<<< HEAD
                     <td><img style =" max-width: 150px" src="{{vich_uploader_asset(data, 'imageFile')}}" alt=""></td>
                     <td>{{data.descriptionCourte}}</td>
                     <td>
                         <a href="{{ path('update',{'id': data.id}) }}" class="btn btn-warning">Modifier</a>
                         <a href="{{ path('delete',{'id': data.id}) }}" class="btn btn-danger">Supprimer</a>
                         <a href="{{path('create')}}" class="btn btn-success">Ajout nouveau</a>
+=======
+                    <td>{{data.image}}</td>
+                    <td>{{data.descriptionCourte}}</td>
+                    <td>
+                        {# <a href="{{ path('update',{'id': data.id}) }}" class="btn btn-warning">Modifier</a>
+                        <a href="{{ path('delete',{'id': data.id}) }}" class="btn btn-danger">Supprimer</a> #}
+>>>>>>> 017d2e9fb8be9f81fe4c7c965a9a5486696bca31
                     </td>
             </tr>
             {% endfor %}
