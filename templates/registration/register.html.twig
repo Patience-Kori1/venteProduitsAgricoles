@@ -13,7 +13,8 @@
 
                 {{ form_start(form) }}
 
-                    <div class="row"> {# <div class="col-md-6">  #}
+                    <div class="row">
+                        <div class="col-md-6"> {#Pour diviser par deux les colonnes avec bootstrapp#}
                             {{ form_row(form.nom, {
                                 label: 'Nom',
                                 attr: {
@@ -89,15 +90,12 @@
                                     class: 'form-check-input'
                                 }
                             }) }}
-
                             <div class="form-group">
-                                <button type="submit" class="btn btn-warning btn-lg ms-2">Inscription</button>
+                            <button type="submit" class="btn btn-warning btn-lg ms-2">Inscription</button>
                             </div>
                         </div>
                     </div>
-
                 {{ form_end(form) }}  
-                
             </div>
         </div>
     </div>
