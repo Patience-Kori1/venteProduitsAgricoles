@@ -99,5 +99,23 @@ class ProduitController extends AbstractController
             'controller_name' => 'MainController',
             "datas_table" => $table,
         ]);
-    }
+    }    
 }
+
+
+
+
+
+//  /**
+    //  * @route("/user", name= "showUser")
+    //  */
+    // public function showUser(UserRepository  $repo):Response
+    // {
+     
+    //     $table = $repo->findAll();
+    //     return $this->render('registration/tableRegister.html.twig', [
+    //         'controller_name' => 'MainController',
+    //         "datas_users" => $table,
+    //     ]);
+    // }
+

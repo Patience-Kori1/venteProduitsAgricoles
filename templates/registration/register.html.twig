@@ -1,27 +1,106 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'enregistrer{% endblock %}
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+
 {% block body %}
-    <h1>Register</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center mt-4">S'inscrire</h1>
+            <div class="btn btn-info mt-8">
 
-    {{ form_start(form) }}
-        {{ form_row(form.nom) }}
-        {{ form_row(form.prenom) }}
-        {{ form_row(form.adresse) }}
-        {{ form_row(form.ville) }}
-        {{ form_row(form.codePostal) }}
-        {{ form_row(form.telephone) }}
-        {{ form_row(form.dateInscription) }}
-        {{ form_row(form.roles) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.plainPassword.first) }}
-        {{ form_row(form.plainPassword.second) }}
-        {# {{ form_row(form.plainPassword, {
-            label: 'Password'
-        }) }} #}
-        {{ form_row(form.agreeTerms) }}
+                {{ form_start(form) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(form) }}
+                    <div class="row"> {# <div class="col-md-6">  #}
+                            {{ form_row(form.nom, {
+                                label: 'Nom',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.prenom, {
+                                label: 'Prénom',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.adresse, {
+                                label: 'Adresse',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.ville, {
+                                label: 'Ville',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.codePostal, {
+                                label: 'Code postal',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.telephone, {
+                                label: 'Téléphone',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.dateInscription, {
+                                label: 'Date d\'inscription',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                        </div>
+
+                        <div class="col-md-6"> {#Pour diviser par deux les colonnes avec bootstrapp#}
+                            {{ form_row(form.roles, {
+                                label: 'Rôle',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.email, {
+                                label: 'Email',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.plainPassword.first, {
+                                label: 'Mot de passe',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.plainPassword.second, {
+                                label: 'Confirmer le mot de passe',
+                                attr: {
+                                    class: 'form-control w-500'
+                                }
+                            }) }}
+                            {{ form_row(form.agreeTerms, {
+                                label: 'J\'accepte les termes et conditions',
+                                attr: {
+                                    class: 'form-check-input'
+                                }
+                            }) }}
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-warning btn-lg ms-2">Inscription</button>
+                            </div>
+                        </div>
+                    </div>
+
+                {{ form_end(form) }}  
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

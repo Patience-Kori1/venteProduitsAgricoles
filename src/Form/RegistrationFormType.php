@@ -29,7 +29,7 @@ class RegistrationFormType extends AbstractType
             ->add('roles', ChoiceType::class, [
                 'choices'  => [
                     'Producteur' => 'ROLE_PRODUCTEUR',
-                    'Vendeur' => 'ROLE_VENDEUR',
+                    'Acheteur' => 'ROLE_VENDEUR',
                     'Administrateur' => 'ROLE_ADMIN',
                 ],
                 // 'expanded' => false,
