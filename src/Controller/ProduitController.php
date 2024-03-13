@@ -24,10 +24,7 @@ class ProduitController extends AbstractController
             'lesProduits' => $produits,
         ]);
     }
-
-    /**
-    * @route("/create" , name="create")
-    */
+    
     /**
     * @route("/create" , name="create")
     */
