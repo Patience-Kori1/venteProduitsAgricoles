@@ -30,9 +30,10 @@ class Produit
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="imageName",)
+     * @Vich\UploadableField(mapping="produit_images", fileNameProperty="imageName")
+     * @var File|null
      */
-    private ?File $imageFile;
+    private ?File $imageFile = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -73,6 +74,7 @@ class Produit
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->dateCreation = new \DateTimeImmutable(); // Initialisation de la date de création
     }
 
     public function getId(): ?int
@@ -88,10 +90,8 @@ class Produit
     public function setNomProduit(string $nomProduit): self
     {
         $this->nomProduit = $nomProduit;
-
         return $this;
     }
-
 
     public function setImageFile(?File $imageFile = null): void
     {
@@ -114,10 +114,9 @@ class Produit
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
-
         return $this;
     }
 
@@ -129,7 +128,6 @@ class Produit
     public function setPrix(string $prix): self
     {
         $this->prix = $prix;
-
         return $this;
     }
 
@@ -141,7 +139,6 @@ class Produit
     public function setQuantiteStock(?int $quantiteStock): self
     {
         $this->quantiteStock = $quantiteStock;
-
         return $this;
     }
 
@@ -153,7 +150,6 @@ class Produit
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
-
         return $this;
     }
 
@@ -165,7 +161,6 @@ class Produit
     public function setDescriptionCourte(string $descriptionCourte): self
     {
         $this->descriptionCourte = $descriptionCourte;
-
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Produit
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
-
         return $this;
     }
 
