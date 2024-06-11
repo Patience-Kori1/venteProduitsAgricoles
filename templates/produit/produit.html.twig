@@ -7,6 +7,7 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     #paku { background-color: rgb(235, 126, 126); border-radius: 50%; }
+    .card { background-color: success }
 </style>
 
 <div class="example-wrapper">
@@ -16,7 +17,7 @@
 <div class="row">
     {% for produit in lesProduits %} 
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
-            <div class="card mb-3 container">
+            <div class="card mb-3 container btn btn-success ">
                 <h4 class="card-title text-center">{{ produit.nomProduit }}</h4>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Quantité en stock : {{ produit.quantiteStock }} kg</li>
