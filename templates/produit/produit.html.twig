@@ -26,7 +26,7 @@
                     <li class="list-group-item">{{ produit.descriptionCourte }}</li>
                 </ul>
 
-                {# Je fais une condition pour que twig puisse vérifier si l'image est une fixture commençant par une URL 'http' ou 'https', qu'il puisse utiliser la source normal de l'image. Mais s'il n'est vide et qu'il ne commence pas par http et https, il va paramétrer le image_path avec la donction asset() qui va afficher l'image se trouvant dans le repertoire 'images/'#}
+                {# Je fais une condition pour que twig puisse vérifier si l'image est une fixture commençant par une URL 'http' ou 'https', qu'il puisse utiliser la source normal de l'image. Mais s'il n'est vide et qu'il ne commence pas par http et https, il va paramétrer le image_path avec la fonction asset() qui va afficher l'image se trouvant dans le repertoire 'images/'#}
 
                 {% set image_path = produit.imageName %}
                 {% if produit.imageName is not empty and not (produit.imageName starts with 'http' or produit.imageName starts with 'https') %}
